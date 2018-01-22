@@ -1,0 +1,46 @@
+{
+  "app": {
+    "title": "Trình Quản Lý Nhạc",
+    "common": {
+      "home": "Trang chủ",
+      "song": "Bài hát",
+      "playlists": "Danh sách phát",
+      "button": {
+        "add": "Thêm",
+        "create": "Tạo",
+        "apply": "Chấp nhận",
+        "edit": "Sửa",
+        "delete": "Xoá",
+        "cancel": "Huỷ",
+        "search": "Tìm kiếm",
+        "revert": "Trở lại"
+      }
+    },
+    "song": {
+      "title-name": "Vui lòng nhập tên bài hát!",
+      "create-title": "Thêm bài hát",
+      "edit-title": "Sửa bài hát"
+    },
+    "playlist": {
+      "title-name": "Vui lòng nhập tên danh sách phát!",
+      "create-title": "Thêm danh sách phát mới",
+      "edit-title": "Sửa danh sách phát",
+      "information": "Thông tin",
+      "addsong": "Thêm bài hát"
+    },
+    "table": {
+      "song": {
+        "id": "ID",
+        "title": "Tên bài hát",
+        "artist": "Ca sĩ",
+        "action": "Thao tác"
+      },
+      "playlist": {
+        "id": "ID",
+        "name": "Tên danh sách phát",
+        "description": "Mô tả",
+        "action": "Thao tác"
+      }
+    }
+  }
+}

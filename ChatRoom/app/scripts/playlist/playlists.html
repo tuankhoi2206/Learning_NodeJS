@@ -1,0 +1,49 @@
+<ov-breadcrumbs config="vm.common.configBreadcrumb"></ov-breadcrumbs>
+<!-- PlayList Nav-->
+<nav class="navbar navbar-inverse navbar-custom">
+  <div class="container-fluid">
+
+    <div class="hNav">
+
+      <div class="hLeft">
+        <span class="title">{{vm.cache.currentView.title | i18next}}</span>
+      </div>
+      <div class="hRight">
+
+        <!-- Search Bar-->
+        <div class="search-bar">
+          <input type="text" class="search" ng-model="vm.showPlaylistView.searchText.text">
+          <i id="icon-close" class="fa fa-times" onclick="closeSearchBar()"></i>
+        </div>
+        <!--/-- Search Bar-->
+        <!--ng-show="vm.isShowMode()"-->
+        <div class="cs-group-button" id="cs-group-button" ng-show="vm.showPlaylistView.function.isShowMode()">
+          <!-- add PlayList-->
+          <button type="button" class="btn btn-success btn-responsive btn-action"
+                  ng-click="vm.showPlaylistView.function.switchAddMode()">
+            <span class="glyphicon glyphicon-plus"></span>
+            <span class="nav-button"> {{'app.common.button.add' | i18next}}</span>
+          </button>
+
+          <!-- All Delete -->
+          <!--ng-disabled="true"-->
+          <button type="button" class="btn btn-danger btn-responsive btn-action" data-toggle="modal"
+                  data-target="#multiDelete" ng-disabled="vm.showPlaylistView.isDisabledDeleteBtn.status">
+            <i class="fa fa-trash-o"></i>
+            <span class="nav-button">{{'app.common.button.delete' | i18next}}</span>
+          </button>
+
+          <button type="button" class="btn btn-info btn-responsive btn-action" onclick="displaySearchBar();">
+            <span class="glyphicon glyphicon-search"></span>
+            <span class="nav-button">{{'app.common.button.search' | i18next}}</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</nav>
+<!--/---Nav-->
+
+<!-- PlayList Table -->
+<div id="playlist" class="container-fluid padding-top" ng-include src="vm.cache.currentView.templateUrl"></div>

@@ -1,0 +1,5 @@
+<ul class="breadcrumb">
+  <li data-ng-repeat='title in vm.titles'><a data-ng-if="!$last" class="breadcrumb-item"
+                                             ng-i18next="{{title}}"></a><span
+    data-ng-if="$last" class="breadcrumb-item active" ng-i18next="{{title}}"></span></li>
+</ul>

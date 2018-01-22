@@ -1,0 +1,16 @@
+.panel-ms-card {
+  width: 100%;
+  height: 100%;
+}
+.panel-ms-card .ms-card {
+  margin: 0 auto;
+  width: 200px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+.panel-ms-card .ms-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}

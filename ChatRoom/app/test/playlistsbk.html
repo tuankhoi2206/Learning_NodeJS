@@ -1,0 +1,94 @@
+<breadcrumbs titles="play.titles"></breadcrumbs>
+<!-- PlayList Nav-->
+<nav class="navbar navbar-inverse navbar-custom">
+  <div class="container-fluid">
+
+    <div style="margin: 5px">
+
+      <div style="float: left">
+        <span class="title">{{titleName}}</span>
+      </div>
+      <div class="right-div">
+
+        <!-- Search Bar-->
+        <div class="search-bar" ng-model="create.searchFish">
+          <i id="icon-search" class="fa fa-search"></i>
+          <input type="text" class="search" ng-model="create.searchFish">
+          <i id="icon-close" class="fa fa-times" onclick="closeSearchBar()"></i>
+        </div>
+        <!--/-- Search Bar-->
+
+        <div class="cs-group-button" id="cs-group-button">
+          <!-- add PlayList-->
+          <button type="button" class="btn btn-success btn-responsive btn-action"
+                  ng-click="app.changeRoute('createplaylist')">
+            <span class="glyphicon glyphicon-plus"></span>
+            <span class="nav-button">Add</span>
+          </button>
+
+          <!-- All Delete -->
+          <!--ng-disabled="true"-->
+          <button type="button" class="btn btn-danger btn-responsive btn-action" data-toggle="modal"
+                  data-target="#multiDelete" ng-disabled="play.isDisabledBtn">
+            <i class="fa fa-trash-o"></i>
+            <span class="nav-button">Delete</span>
+          </button>
+
+          <button type="button" class="btn btn-info btn-responsive btn-action" onclick="displaySearchBar();">
+            <span class="glyphicon glyphicon-search"></span>
+            <span class="nav-button">Search</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</nav>
+<!--/---Nav-->
+
+<!-- PlayList Table -->
+<div class="container-fluid">
+
+  <ov-table-view items="play.lstPlayList" title-columns="play.titleColumns" format-data="play.formatData"
+                 disable-checked-all="play.isDisabledBtn"
+                 is-checked-header-chkbox="play.isCheckedHeaderChkbox" list-checked-chk-box="play.listCheckedChkBox"
+                 on-direct-to-edit-page="play.directToEditPage" on-remove-item-by-index="play.removeByIndex"
+                 search-text="play.searchFish">
+  </ov-table-view>
+
+  <ov-dialog id-dialog="multiDelete" title-dialog="Delete" message-dialog="Are you sure you want to delete selected?"
+             title-left-btn="Yes" title-right-btn="No" on-left-btn="play.deletePlayLists">
+  </ov-dialog>
+
+  <!-- List -->
+  <div class="panel panel-default panel-list-mini">
+    <div class="panel-body">
+      <ul id="list-view">
+        <li ng-repeat='playlist in play.lstPlayList' class="container">
+          <div class="col-xs-2 text-center line-height">
+            <input type="checkbox" class="checkbox-inline" ng-model="song.songChecked"
+                   ng-change="songs.stageChangeChkBox(song.id)">
+          </div>
+          <div class="col-xs-6 div-text">
+            <strong>{{ playlist.name }}</strong><br>{{ playlist.description }}
+          </div>
+
+          <div class="col-xs-4 text-center line-height">
+            <!--Edit-->
+            <button type="button" class="btn btn-warning" ng-click="play.changeRouteToEdit(playlist)">
+              <i class="fa fa-edit"></i> <span class="displayLabel">Edit</span>
+            </button>
+            <!--Delete-->
+            <button id="list-btn-del" type="button" class="btn btn-danger" data-toggle="modal"
+                    data-target="#myModal"
+                    ng-click="play.getIndex($index)">
+              <i class="fa fa-trash-o"></i>
+              <span class="displayLabel">Delete</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>

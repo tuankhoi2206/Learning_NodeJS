@@ -1,0 +1,52 @@
+.wrapper-room {
+  width: 45rem;
+  position: absolute;
+  top: 4rem;
+  height: 40rem;
+}
+.wrapper-room .left-panel {
+  width: 16rem;
+  float: left;
+  background-color: #000;
+  color: #f5f5f5;
+  height: 100%;
+  text-align: center;
+}
+.wrapper-room .left-panel .box {
+  margin-top: 1.3rem;
+  display: flex;
+  justify-content: center;
+}
+.wrapper-room .left-panel .box input#search {
+  width: 10rem;
+  padding: 15px 0 15px 20px;
+  border: 0 none;
+  height: 40px;
+  margin-right: 0;
+  color: #fff;
+  outline: none;
+  background: #1f7f5c;
+  float: left;
+  box-sizing: border-box;
+  transition: all 0.15s;
+}
+.wrapper-room .left-panel .box input#search::placeholder {
+  color: #fff;
+  text-overflow: ellipsis;
+}
+.wrapper-room .left-panel .box #searchButton {
+  border: 0 none;
+  background: #1f7f5c url("https://designmodo.com/demo/dropdown-menu-search/search.png") center no-repeat;
+  width: 60px;
+  float: left;
+  padding: 0;
+  text-align: center;
+  height: 40px;
+  cursor: pointer;
+}
+.wrapper-room .right-panel {
+  width: 70%;
+  float: left;
+  background-color: #f5f5f5;
+  height: 100%;
+}

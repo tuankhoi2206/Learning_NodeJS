@@ -1,0 +1,274 @@
+@import "../bower_components/nib"
+
+/*-------------------------------*/
+/*           TYPOGRAPHY          */
+/*-------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Roboto')
+
+*
+  box-sizing: border-box
+
+/**
+ * Desc rem: https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
+ * Most browsers has a default value of 16px
+ * 62.5% of 16px = 10px
+ * 1.4 = 14px
+ **/
+html
+  font-size 10px
+
+html, body
+  height 100%
+  margin 0px
+  padding 0px
+
+body
+  font-family 'Roboto', sans-serif
+  font-size 1.4rem
+  font-weight 400
+
+//background-color rgba(0, 0, 0, 0.02)
+//background-color #C3C0AF
+
+.link-custom
+  cursor pointer
+  text-decoration none
+
+/*-------------------------------*/
+/*           HEADER              */
+/*-------------------------------*/
+#header a
+  color white
+  @extend .link-custom
+
+#header
+  height 8rem
+  color: white
+  .row
+    background-color #1A91B1
+  .header-left
+    .header-title
+      white-space nowrap
+      line-height 8rem
+      font-size 3rem
+      text-shadow 1px 2px 3px gray
+      .title
+        text-shadow 0.25px 0.25px 0.25px white
+        color: #f5f5f5
+        @extend .link-custom
+      .menu-responsive
+        display: none
+        float none
+        cursor: pointer
+        border 1px solid #ddd
+        border-radius 3px
+        margin 0px
+        padding 7px
+        .icon-bar
+          background-color white
+
+  .header-right
+    .languages
+      white-space nowrap
+      a img
+        height: 2.5rem
+        @extend .link-custom
+
+/*-------------------------------*/
+/*           SECTION             */
+/*-------------------------------*/
+section
+  height calc(100% - 16rem)
+  .btn
+    font-size 1.4rem
+  #main-wrapper
+    height 100%
+    .container
+      height inherit
+      .row
+        height inherit
+        #left-sidebar
+          height inherit
+          border-left 1px solid #dcdcdc
+          .btn-group-vertical
+            width 100%
+            margin-top 1rem
+        #main-content
+          height inherit
+          border-left 1px solid #dcdcdc
+          border-right 1px solid #dcdcdc
+          .navbar
+            border 0px
+            background-color transparent
+            margin 0px
+
+/*-------------------------------*/
+/*           SIDEBAR              */
+/*-------------------------------*/
+.hover-focus
+  color #1A91B1
+  font-size 16px
+  font-weight bold
+
+#sidebar
+  height calc(100% - 16rem)
+  width 20rem
+  position absolute
+  z-index 1
+  background-color #e9ebee
+  padding-top 5px
+  box-shadow 1px 0px 9px 0px #777
+  a
+    padding 8px 8px 8px 20px
+    font-size 1.5rem
+    color #696763
+    display block
+    transition 0.3s
+    @extend .link-custom
+    &:hover
+      @extend .hover-focus
+
+.offcanvas a:focus
+  @extends .hover-focus
+
+.active-menu
+  background-color rgba(0, 0, 0, .05)
+  border-left 3px solid gray
+  font-weight bold
+
+/*-------------------------------*/
+/*           FOOTER              */
+/*-------------------------------*/
+#footer
+  .company-info p
+    margin-bottom 0px
+    line-height 8rem
+    text-align center
+    color #f5f5f5
+    text-shadow 0.25px 0.25px 0.25px white
+    font-size: 1.5rem
+  div
+    background-color #1A91B1
+
+/*-------------------------------*/
+/*           SONG                */
+/*-------------------------------*/
+#song, #playlist
+  height calc(100% - 10rem)
+
+#song.container-fluid, #playlist.container-fluid
+  padding-right 1.5rem !important
+  padding-left 1.5rem !important
+
+div.hLeft
+  float left
+  font-size 2rem
+  font-weight 600
+
+div.hRight
+  float right
+  white-space nowrap
+
+.padding-top
+  padding-top: 9px
+
+.hNav
+  padding-bottom: 9px
+  padding-top: 9px
+  border-bottom: 1px solid #dcdcdc
+  display: block
+  overflow: auto
+
+.my-panel
+  border-top-left-radius: 0px
+  border-top-right-radius: 0px
+
+.panel-footer
+  text-align: right
+
+/* search bar*/
+.cs-search-bar
+  display: none
+
+.cs-group-button
+  display: inline
+
+.blackcolor
+  color #0f0f0f
+
+/*** BODY ***/
+
+.has-error
+  color: #b22222
+
+#information-panel,
+#addSong-panel
+  border-top: 0px
+
+#information-panel
+  border-top-left-radius: 0
+  border-top-right-radius: 0
+
+.panel-body ul li div
+  display: inline
+
+.panel-body ul
+  list-style-type: none
+  padding: 0px
+
+.panel-body
+  padding: 1%
+
+.div-text
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+@media all and (max-width: 480px)
+  .nav-button
+    display: none
+
+  #list-btn-del
+    display: none
+
+@media all and (max-width: 768px)
+  #header
+    .header-left
+      .header-title
+        .menu-responsive
+          display inline-block
+
+  #song, #playlist
+    height calc(100% - 6rem)
+
+  .breadcrumb,
+  #music-icon,
+  #left-sidebar
+    display: none
+
+@media all and (max-width: 980px)
+  .container
+    width inherit !important
+
+/*
+ *https://web.archive.org/web/20140330054852/http://responsivenews.co.uk/post/13925578846/fluid-grids-orientation-resolution-independence
+ */
+@media (min-width: 858px)
+  html
+    font-size 12px
+
+@media (min-width: 780px)
+  html
+    font-size 11px
+
+@media (min-width: 702px)
+  html
+    font-size 10px
+
+@media (min-width: 724px)
+  html
+    font-size 9px
+
+@media (max-width: 623px)
+  html
+    font-size 8px

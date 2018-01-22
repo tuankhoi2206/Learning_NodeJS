@@ -1,0 +1,35 @@
+<div class="wrapper-login">
+  <!-- pinner -->
+  <div></div>
+
+  <!-- alert -->
+  <div></div>
+  <div class="login-form">
+    <div class="login-social">
+      <div>
+        <span><strong>Login</strong> via</span>
+      </div>
+      <div>
+        <img class="img-height" src="app/images/login/facebookLoginBtn.png">
+      </div>
+      <div class="login-row">
+        <img class="img-height" src="app/images/login/twitterLoginBtn.png">
+      </div>
+    </div>
+
+    <div class="login-row">
+      <input type="text" id="username" placeholder="Username" ng-model="vm.user.username">
+    </div>
+    <div class="login-row">
+      <input type="password" id="password" placeholder="Password" ng-model="vm.user.password">
+    </div>
+    <div class="login-row">
+      <div class="strength-meter">
+        <div class="strength-meter-fill" data-strength="2"></div>
+      </div>
+    </div>
+    <div class="login-row">
+      <input type="button" value="LOGIN" ng-click="vm.doLogin()">
+    </div>
+  </div>
+</div>

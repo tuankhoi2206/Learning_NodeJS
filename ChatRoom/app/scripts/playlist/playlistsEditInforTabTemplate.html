@@ -1,0 +1,47 @@
+<div id="information-panel" class="panel panel-default">
+  <div class="panel-body">
+    <form class="form-horizontal">
+      <!-- name -->
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="name">*{{'app.table.playlist.name' | i18next}}:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="name"
+                 ng-model="vm.cache.common.playlistModel.name" ng-change="vm.common.function.checkValueInput()">
+        </div>
+      </div>
+
+      <!--Show error-->
+      <div class="form-group has-error" ng-show="vm.cache.isInputError">
+        <label class="control-label col-sm-4"></label>
+        <div class="col-sm-6">
+          <label>{{'app.table.playlist.title-name' | i18next}}</label>
+        </div>
+      </div>
+
+      <!-- description -->
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="description">{{'app.table.playlist.description' |
+          i18next}}:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="description"
+                 ng-model="vm.cache.common.playlistModel.description"
+                 ng-change="vm.common.function.checkValueInput()">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="panel-footer">
+    <div>
+      <button type="button" class="btn btn-success"
+              ng-disabled="vm.cache.common.isDisabledCreateOrApplyBtn.status"
+              ng-click="vm.editPlaylistView.function.updatePlaylist()">
+        <span class="glyphicon glyphicon-pencil"></span> {{'app.common.button.apply' | i18next}}
+      </button>
+
+      <button type="button" class="btn btn-danger" ng-click="vm.common.function.doCancel()">
+        <span class="glyphicon glyphicon-remove"></span>
+        {{'app.common.button.cancel' | i18next}}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+npm cache clean --force
+rm -f package-lock.json
+node install
+
+https://www.google.com.vn/url?sa=t&rct=j&q=&esrc=s&source=web&cd=9&cad=rja&uact=8&ved=0ahUKEwio5PqJjdrYAhWIFJQKHXnPDrAQFgh1MAg&url=http%3A%2F%2Fwww.fullstacktraining.com%2Farticles%2Fhow-to-serve-static-files-with-express&usg=AOvVaw2O3u2mhDh9NGcurveDT5nf
+https://stackoverflow.com/questions/28651028/cannot-find-module-build-release-bson-code-module-not-found-js-bson
+
+Tip: Use nodemon to have your server restart on file changes. Install nodemon using
+npm install -g nodemon. Then start your server with nodemon server.js
+
+
+Search
+https://webdesign.tutsplus.com/tutorials/css-experiments-with-a-search-form-input-and-button--cms-22069
+https://designmodo.com/create-drop-down-menu-search-box/
+http://www.techirsh.com/2014/04/free-bootstrap-flat-ui-blogger-template.html
+http://stampede-design.com/
+
+Chat
+http://bashooka.com/inspiration/chat-ui-designs/
+https://www.pubnub.com/tutorials/angularjs/chat-buddy-list/
+https://www.pubnub.com/tutorials/angularjs/chat-managing-channel-groups/#component

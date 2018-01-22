@@ -1,0 +1,32 @@
+.wrapper-login {
+  margin: 15rem auto;
+  width: 40rem;
+  background-color: #f1f1f1;
+  text-align: center;
+  box-shadow: 0px 0px 10px 0px;
+}
+.wrapper-login .login-form {
+  padding: 5rem 0rem 5rem 0rem;
+}
+.wrapper-login .login-form input[type="text"],
+.wrapper-login .login-form input[type="button"],
+.wrapper-login .login-form input[type="password"] {
+  padding: 1rem;
+  width: 30rem;
+}
+.wrapper-login .login-form input[type="button"] {
+  background-color: #4caf50;
+  color: #fff;
+  border: 0px;
+}
+.wrapper-login .login-form .login-row {
+  padding-bottom: 1rem;
+}
+.wrapper-login .login-form .login-social {
+  border-bottom: 2px solid #fff;
+  margin-bottom: 1rem;
+}
+.wrapper-login .login-form .login-social .img-height {
+  height: 6rem;
+  cursor: pointer;
+}

@@ -1,0 +1,60 @@
+<html>
+<head>
+  <title>Tao Custom Directive trong AngularJS </title>
+</head>
+<body>
+<h2>Scope AngularJS</h2>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script>
+  function ParentScope() {
+    this.aString="parent string";
+    this.aNumber=100;
+    this.anArray=[10,20,30];
+    this.anObject={
+      'property1':'parent prop1',
+      'property2':'parent prop2'
+    };
+    this.aFunction=function () {
+      console.log('parent output');
+    }
+
+  }
+  Object.defineProperties(this,'anObject.property1',
+    {
+      get: function() {
+        console.log('get anObject.property1',this.anObject.property1);
+        return this.anObject.property1;
+      },
+      set: function(value) {
+        this.anObject.property1 = value;
+        console.log('set anObject.property1',this.anObject.property1);
+      }
+    });
+
+
+
+  function ChildScope() {}
+
+  ChildScope.prototype=new ParentScope();
+  var childScope=new ChildScope();
+  console.log("#################### Example1");
+  console.log(childScope.aString);// not in child, prototype chain followed ... parent' property found.
+  childScope.aString ='child string'; //when doing a primitive like this, it create a new property on child
+  //object ( vs if thought it would update the parent object's aString property)
+  console.log(childScope.aString);
+
+  console.log( "####################### Example 2" );
+  console.log( childScope.anArray[1] ); //updates the parent object's property
+  console.log( childScope.anObject.property1 );//updates the parent object's property
+  childScope.anArray[1] = 22;
+  childScope.anObject.property1 = 'child prop1';
+  console.log( childScope.anArray[1] );
+  console.log( childScope.anObject.property1 );
+
+  console.log("#################### Example 3");
+  console.dir(childScope.anArray);
+  console.dir(childScope.anObject);
+
+</script>
+</body>
+</html>

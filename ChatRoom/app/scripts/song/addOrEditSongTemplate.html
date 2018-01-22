@@ -1,0 +1,50 @@
+<div id="song-panel" class="panel panel-default padding-top">
+  <div class="panel-body">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="title">*{{'app.table.song.title' | i18next}}:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="title"
+                 ng-model="vm.cache.songModel.title"
+                 ng-change="vm.common.function.checkValueInput()">
+        </div>
+      </div>
+      <!--Show error-->
+      <div class="form-group has-error" ng-show="vm.common.isInputError">
+        <label class="control-label col-sm-4"></label>
+        <div class="col-sm-6">
+          <label>{{'app.song.title-name' | i18next}}</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="artist">{{'app.table.song.artist' | i18next}}:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="artist"
+                 ng-model="vm.cache.songModel.artists"
+                 ng-change="vm.common.function.checkValueInput()">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="panel-footer">
+    <div>
+      <button ng-show="vm.addSongView.function.isAddMode()" type="button" class="btn btn-success"
+              ng-disabled="vm.cache.isDisabledCreateOrApplyBtn.status"
+              ng-click="vm.addSongView.function.addSong()">
+        <span class="glyphicon glyphicon-plus"></span> {{'app.common.button.create' | i18next}}
+      </button>
+
+      <button ng-show="vm.editSongView.function.isEditMode()" type="button" class="btn btn-success"
+              ng-disabled="vm.cache.isDisabledCreateOrApplyBtn.status"
+              ng-click="vm.editSongView.function.updateSong()">
+        <span class="glyphicon glyphicon-pencil"></span> {{'app.common.button.apply' | i18next}}
+      </button>
+
+      <button type="button" class="btn btn-danger" ng-click="vm.common.function.doCancel()">
+        <span class="glyphicon glyphicon-remove"></span>
+        {{'app.common.button.cancel' | i18next}}
+      </button>
+    </div>
+  </div>
+</div><!--div class="panel panel-default">-->

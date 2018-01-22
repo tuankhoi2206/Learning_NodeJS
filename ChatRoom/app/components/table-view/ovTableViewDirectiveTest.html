@@ -1,0 +1,43 @@
+<!-- table -->
+<div id="tableView" class="tableView">
+  <!-- header -->
+  <div class="rawTableView rawHeader col-header">
+    <div class="first-col" ng-show="vm.configData.multipleSelect">
+      <input type="checkbox" class="checkbox-inline" ng-model="vm.configData.isCheckedHeaderChkbox.status"
+             ng-change="vm.stageChangeHeaderCheckbox()">
+    </div>
+    <div class="first-col" ng-repeat="column in vm.configData.titleColumns"
+         style="width: {{column.width}}">
+      <a ng-if="!$last" ng-click="vm.sortType = column.mapdata; vm.sortReverse = !vm.sortReverse">
+        {{column.colname | i18next}}
+        <span ng-show="vm.sortType == column.mapdata && !vm.sortReverse" class="fa fa-caret-down"></span>
+        <span ng-show="vm.sortType == column.mapdata && vm.sortReverse" class="fa fa-caret-up"></span>
+      </a>
+      <span ng-if="$last">
+        {{column.colname | i18next}}
+      </span>
+    </div>
+  </div><!--// header -->
+
+  <!-- body -->
+  <div class="table-view-body">
+    <div class="rawTableView" ng-repeat='item in vm.configData.items track by $index' ng-if="vm.hasData()">
+      <!--ng-repeat='item in vm.configData.items | filter: vm.configData.searchText | orderBy: vm.sortType: vm.sortReverse'>-->
+      <!--format data-->
+      <span style="display: none"> {{vm.setElementFormat(vm.configFunction.formatData(item))}}</span>
+      <!--col 1 checkBox-->
+      <div class="first-col" ng-show="vm.configData.multipleSelect">
+        <input type="checkbox" class="checkbox-inline" ng-model="item.isChecked"
+               ng-change="vm.stageChangeChkBox(item.id)">
+      </div>
+      <!--1. song-->
+      <div class="last-col" ng-repeat="format in vm.configData.rowData"
+           style="width: {{vm.configData.titleColumns[$index].width}}">
+        <span ng-if="format.mapdata !==''"> {{item[format.mapdata] || upperCase}}</span>
+        <div ng-if="format.templateUrl !==''" ng-include="format.templateUrl"/>
+      </div>
+    </div>
+    <div class="table-view-no-data" ng-if="!vm.hasData()">No data</div>
+  </div>
+  <!-- end modal-->
+</div><!--end table-->

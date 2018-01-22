@@ -1,0 +1,20 @@
+<ov-table-view config-data="vm.configDataSongTable"
+               config-function="vm.configFuncSongTable">
+</ov-table-view>
+
+<ov-dialog id-dialog='multiDelete' title-dialog='Delete' message-dialog='Are you sure you want to delete selected?'
+           title-left-btn='Yes' title-right-btn='No' on-left-btn='vm.showSongsView.function.removeSongs'>
+</ov-dialog>
+
+
+<!-- WE'RE UNDER ov-table-list-view COMPONENT -->
+
+<!--<button ng-click="vm.onRemoveItem(vm.selectedItem)"></button>
+
+function ovTableListViewCtrl() {
+  vm.onRemoveItem = function (selectedItem) {
+    vm.onRemove({removedItem: selectedItem});
+  }
+}
+
+<product-list items="vm.products" on-item-click="vm.onItemClick"></product-list>-->

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angular Full-Stack</title>
+
+  <link rel="stylesheet" href="scripts/login/login.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/lodash/index.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/i18next/i18next.min.js"></script>
+  <script src="bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js"></script>
+  <script src="bower_components/ng-i18next/dist/ng-i18next.min.js"></script>
+
+</head>
+<body ng-controller="AppCtrl as vm">
+<div ng-view=""></div>
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+<script src="scripts/app.module.js"></script>
+<script src="scripts/app.route.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/common/common.constant.js"></script>
+<script src="scripts/auth/auth.service.js"></script>
+
+
+<script src="scripts/login/login.controller.js"></script>
+<script src="scripts/login/login.directive.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+.tableView {
+  border: 1px solid #dcdcdc;
+  white-space: nowrap;
+}
+.table-view-no-data {
+  color: #5c5c5c;
+}
+.rawTableView > div {
+  border-right: 1px solid #dcdcdc;
+  border-bottom: 1px solid #dcdcdc;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rawTableView {
+  display: -webkit-box;
+  background-color: #f7f7f7;
+}
+.rawTableView:hover {
+  background-color: rgba(10,33,85,0.04);
+  cursor: pointer;
+}
+/*renew*/
+.rawHeader {
+  overflow: hidden;
+}
+.rawHeader div {
+  font-weight: bold;
+}
+.div-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Col */
+.rawTableView .first-col {
+  width: 50px;
+}
+.face-header {
+  height: 45px;
+}
+.rawTableView .first-col a {
+  color: #5c5c5c;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.rawTableView .first-col,
+.last-col {
+  line-height: 44px;
+  text-align: center;
+}
+.rawTableView .group-col-3-4 {
+  flex-grow: 1;
+  display: flex;
+  width: 54%;
+}
+.group-col-3-4 divfirst-child {
+  border-right: 1px solid #dcdcdc;
+}
+.col-3,
+.col-4 {
+  flex: 1;
+  line-height: 44px;
+  padding-left: 8px;
+}
+.rawTableView .last-col {
+  width: 30%;
+}
+.tableView {
+  height: 100%;
+}
+.table-view-body {
+  overflow: auto;
+  height: calc(100% - 45px);
+}
+@media screen and (max-width: 600px) {
+  .title-button {
+    display: none;
+  }
+}
+.rawTableView .group-col-3-4 {
+  width: 58%;
+}
+@media screen and (max-width: 480px) {
+  .group-col-3-4 {
+    flex-direction: column;
+  }
+  .group-col-3-4 .col-3 {
+    font-weight: bold;
+  }
+  .group-col-3-4 div {
+    line-height: 22px;
+  }
+  .group-col-3-4first-letter {
+    font-weight: bold;
+    background-color: #dcdcdc;
+  }
+  .flex-one label {
+    font-weight: bold;
+  }
+  .col-2 {
+    display: none;
+  }
+  .col-3 {
+    border-right: 0px !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  .btn-delele {
+    display: none;
+  }
+  .rawTableView {
+    transition: all 0.5s;
+  }
+}
+.rawTableView > divlast-child {
+  border-left: 1px #ccc solid;
+}
+.rawTableView .group-col-3-4 {
+  width: 63%;
+}
+.rawTableView .last-col {
+  width: 25%;
+}

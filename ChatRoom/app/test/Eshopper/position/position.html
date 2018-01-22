@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Home | E-Shopper</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+
+  <style>
+    div:first-child {
+      opacity: .99;
+    }
+
+    .red, .green, .blue {
+      position: absolute;
+      width: 100px;
+      color: white;
+      line-height: 100px;
+      text-align: center;
+    }
+
+    .red {
+      z-index: 1;
+      top: 20px;
+      left: 20px;
+      background: red;
+    }
+
+    .green {
+      top: 60px;
+      left: 60px;
+      background: green;
+    }
+
+    .blue {
+      top: 100px;
+      left: 100px;
+      background: blue;
+    }
+  </style>
+</head>
+<body id="main">
+<div>
+  <span class="red">Red</span>
+</div>
+<div>
+  <span class="green">Green</span>
+</div>
+<div>
+  <span class="blue">Blue</span>
+</div>
+
+</body>
+<script>
+  function test() {
+    var body = document.getElementById('main');
+    console.log(body);
+  }
+  test();
+</script>
+</html>

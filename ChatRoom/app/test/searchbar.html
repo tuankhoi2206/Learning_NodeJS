@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <style>
+
+    .search-bar {
+      width: 45px;
+      height: 40px;
+      position: relative;
+      /*display: none;*/
+      transition: all 0.5s;
+      display: none;
+    }
+
+    .search {
+      width: 300px;
+      height: 38px;
+      border: 1px solid gainsboro;
+      padding-left: 40px;
+      border-radius: 4px;
+      padding-right: 40px;
+      position: absolute;
+    }
+
+    #icon-search {
+      position: absolute;
+      top: 30%;
+      margin-left: 15px;
+      z-index: 1;
+    }
+
+    #icon-close {
+      width: 50px;
+      font-size: 10pt;
+      height: 50px;
+      color: #4f5b66;
+      position: absolute;
+      margin-left: 270px;
+      top: 30%;
+      cursor: pointer;
+    }
+
+  </style>
+
+</head>
+<body style="padding: 300px;">
+<div>
+  <div class="search-bar">
+    <i id="icon-search" class="fa fa-search"></i>
+    <input type="text" class="search">
+    <i id="icon-close" class="fa fa-times"></i>
+  </div>
+  <div>
+    <input type="button" id="btnSearch" value="showSearch" onclick="showSearchBar()">
+  </div>
+</div>
+<script>
+
+  function showSearchBar() {
+    var search_bar = document.getElementById("btnSearch");
+    search_bar.style.display = "inline-block";
+    console.log("search_Bar");
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Tao Custom Directive trong AngularJS </title>
+</head>
+<body>
+<h2>Ung dung AngularJS</h2>
+<div ng-app="ungdungAngularjs" ng-controller="sinhvienController">
+  <sinhvien ten="Chinh"></sinhvien>
+  <br/>
+  <sinhvien ten="Manh"></sinhvien>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script>
+  var ungdungAngularjs = angular.module("ungdungAngularjs", []);
+
+  ungdungAngularjs.directive('sinhvien', function () {
+    var directive = {};
+    directive.restrict = 'E';
+    directive.template = "Sinh vien: <b>{{sinhvien.ten}}</b> , MSSV: <b>{{sinhvien.mssv}}</b>";
+
+    directive.scope = {
+      sinhvien: "=ten"
+    }
+
+    // element
+    directive.compile = function (element, attributes) {
+      element.css("border", "1px solid #cccccc");
+
+      var hamLienKet = function ($scope, element, attributes) {
+        element.html("Sinh vien: <b>" + $scope.sinhvien.ten + "</b> , MSSV: <b>" + $scope.sinhvien.mssv + "</b><br/>");
+        element.css("background-color", "#ff00ff");
+      }
+
+      return hamLienKet;
+    }
+
+    return directive;
+  });
+
+  ungdungAngularjs.controller('sinhvienController', function ($scope) {
+    $scope.Chinh = {};
+    $scope.Chinh.ten = "Tran Minh Chinh";
+    $scope.Chinh.mssv = 20150456;
+
+    $scope.Manh = {};
+    $scope.Manh.ten = "Cao Tran Manh";
+    $scope.Manh.mssv = 20150489;
+  });
+
+</script>
+</body>
+</html>

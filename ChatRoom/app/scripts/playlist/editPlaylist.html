@@ -1,0 +1,141 @@
+<ul class="nav nav-tabs">
+  <li ng-class="{active: vm.editPlaylistView.inforTab.function.isInforTab()}">
+    <a data-toggle="tab" ng-click="vm.editPlaylistView.function.displayTab('infor')">{{'app.playlist.information' |
+      i18next}}</a>
+  </li>
+  <li ng-class="{active: vm.editPlaylistView.addSongTab.function.isSongTab()}">
+    <a data-toggle="tab" ng-click="vm.editPlaylistView.function.displayTab('addsong')">{{'app.playlist.addsong' |
+      i18next}}</a>
+  </li>
+</ul>
+
+<div class="tab-content" ng-show="vm.editPlaylistView.inforTab.function.isInforTab()">
+  <div id="information-panel" class="panel panel-default">
+    <div class="panel-body">
+      <form class="form-horizontal">
+        <!-- name -->
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="name">*{{'app.table.playlist.name' | i18next}}:</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="name"
+                   ng-model="vm.cache.common.playlistModel.name"
+                   ng-change="vm.editPlaylistView.inforTab.function.checkInputValue()">
+          </div>
+        </div>
+
+        <!--Show error-->
+        <div class="form-group has-error" ng-show="vm.cache.isInputError.status">
+          <label class="control-label col-sm-4"></label>
+          <div class="col-sm-6">
+            <label>{{'app.table.playlist.title-name' | i18next}}</label>
+          </div>
+        </div>
+
+        <!-- description -->
+        <div class="form-group">
+          <label class="control-label col-sm-4" for="description">{{'app.table.playlist.description' |
+            i18next}}:</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="description"
+                   ng-model="vm.cache.common.playlistModel.description"
+                   ng-change="vm.editPlaylistView.inforTab.function.checkInputValue()">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="panel-footer">
+      <div>
+        <button type="button" class="btn btn-success"
+                ng-disabled="vm.cache.common.isDisabledCreateOrApplyBtn.status"
+                ng-click="vm.editPlaylistView.inforTab.function.updatePlaylist()">
+          <span class="glyphicon glyphicon-pencil"></span> {{'app.common.button.apply' | i18next}}
+        </button>
+
+        <button type="button" class="btn btn-danger" ng-click="vm.editPlaylistView.inforTab.function.doCancel()">
+          <span class="glyphicon glyphicon-remove"></span>
+          {{'app.common.button.cancel' | i18next}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div><!--tab Infor-->
+
+<div class="tab-content" ng-show="vm.editPlaylistView.addSongTab.function.isSongTab()">
+  <div id="addSong-panel" class="panel panel-default my-panel">
+    <div class="panel-body" style="padding: 0.3%">
+      <table id="add-song-table" class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <th>
+            <!--Checkbox master-->
+            <input type="checkbox" class="checkbox-inline"
+                   ng-model="vm.editPlaylistView.addSongTab.isCheckedHeaderChkbox"
+                   ng-change="vm.editPlaylistView.addSongTab.function.stageChangeSongHeaderCheckBox()">
+          </th>
+          <th>
+
+            <a ng-click="vm.sortType = 'id'; vm.sortReverse = !vm.sortReverse">
+              {{'app.table.song.id' |i18next}}
+              <span ng-show="vm.sortType == 'id' && !vm.sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="vm.sortType == 'id' && vm.sortReverse" class="fa fa-caret-up"></span>
+            </a>
+
+          </th>
+          <th>
+
+            <a ng-click="vm.sortType = 'title'; vm.sortReverse = !vm.sortReverse">
+              {{'app.table.song.title' |i18next}}
+              <span ng-show="vm.sortType == 'title' && !vm.sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="vm.sortType == 'title' && vm.sortReverse" class="fa fa-caret-up"></span>
+            </a>
+
+          </th>
+          <th class="last-col">
+
+            <a ng-click="vm.sortType = 'artists'; vm.sortReverse = !vm.sortReverse">
+              {{'app.table.song.artist' |i18next}}
+              <span ng-show="vm.sortType == 'artists' && !vm.sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="vm.sortType == 'artists' && vm.sortReverse" class="fa fa-caret-up"></span>
+            </a>
+
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <!-- for song -->
+        <tr ng-repeat='song in vm.editPlaylistView.addSongTab.songs | orderBy: vm.sortType: vm.sortReverse'>
+          <td class="col-text-align left-td">
+            <input type="checkbox" class="checkbox-inline" ng-model="song.isChecked"
+                   ng-change="vm.editPlaylistView.addSongTab.function.stageChangeSongCheckBox(song.id)">
+          </td>
+          <td class="col-text-align">{{ song.id }}</td>
+          <td>{{ song.title }}</td>
+          <td class="last-col">{{ song.artists }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel-footer">
+      <div>
+        <button type="button" class="btn btn-success btn-responsive"
+                ng-click="vm.editPlaylistView.addSongTab.function.addSongOfPlaylist()"
+                ng-disabled="vm.cache.editPlaylistView.addSongTab.isDisabledApplyRevertBtn.status">
+          <span class="glyphicon glyphicon-plus"></span> {{'app.common.button.apply' | i18next}}
+        </button>
+
+        <button type="button" class="btn btn-warning btn-responsive"
+                ng-click="vm.editPlaylistView.addSongTab.function.revertListSong()"
+                ng-disabled="vm.cache.editPlaylistView.addSongTab.isDisabledApplyRevertBtn.status">
+          <span class="glyphicon glyphicon-refresh"></span> {{'app.common.button.revert' | i18next}}
+        </button>
+
+        <button type="button" class="btn btn-danger btn-responsive"
+                ng-click="vm.editPlaylistView.addSongTab.function.doCancel()">
+          <i class="glyphicon glyphicon-remove"></i> {{'app.common.button.cancel' | i18next}}
+        </button>
+      </div>
+    </div>
+  </div><!--/--AddSong -->
+</div>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Home | E-Shopper</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+  <style>
+
+
+    .left-sidebar h2:before {
+      content: " ";
+      position: absolute;
+      background: #fff;
+      bottom: -6px;
+      width: 130px;
+      height: 30px;
+      z-index: -1;
+      left: 50%;
+      margin-left: -65px;
+    }
+
+    .left-sidebar {
+      color: #FE980F;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 auto 30px;
+      text-align: center;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .left-sidebar-test {
+      color: #2a6496;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 auto 30px;
+      text-align: center;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    /*.left-sidebar-test h2 {*/
+    /*position: relative;*/
+    /*color: #2a6496;*/
+    /*font-weight: 700;*/
+    /*text-transform: uppercase;*/
+    /*z-index: 999;*/
+    /*text-align: center;*/
+    /*}*/
+
+    .left-sidebar h2:after {
+      content: " ";
+      position: absolute;
+      border: 1px solid #f5f5f5;
+      bottom: 8px;
+      left: 0;
+      width: 100%;
+      height: 0;
+      z-index: -2;
+    }
+
+    .left-sidebar-test h2:after {
+      /*mục đích ban đầu của before after là dùng để thêm 'content'*/
+      content: " ";
+      position: absolute;
+      border: 1px solid #2a6496;
+      width: 100%;
+      /* ???????? */
+      left: 0;
+      z-index: -2;
+      height: 0;
+      bottom: 13px;
+    }
+
+    .left-sidebar-test h2:before {
+      content: "";
+      width: 130px;
+      height: 30px;
+      background-color: white;
+      z-index: -1;
+      position: absolute;
+      /* ????? */
+      margin-left: -23px;
+    }
+  </style>
+</head>
+<body>
+<div class="container container-fluid">
+  <div class="left-sidebar">
+    <h2>test</h2>
+  </div>
+  <div class="left-sidebar-test">
+    <h2>
+      demo
+    </h2>
+  </div>
+</div>
+
+</body>
+</html>

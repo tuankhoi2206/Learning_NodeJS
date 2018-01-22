@@ -1,0 +1,24 @@
+<div class="modal fade" id="{{vm.idDialog}}" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{vm.titleDialog}}</h4>
+      </div>
+      <div class="modal-body">
+        <!-- Message -->
+        <p>{{vm.messageDialog}}</p>
+      </div>
+      <div class="modal-footer">
+        <!--Delete Button-->
+        <button type="button" class="btn btn-default" data-dismiss="modal"
+                ng-click="vm.onLeftBtn()">{{vm.titleLeftBtn}}
+        </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.onRightBtn()">
+          {{vm.titleRightBtn}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div><!-- end modal-->

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Lazy Loading {{'app.title'| i18next|upperCase}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles/searchBar.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="components/breadcrumbs/ovBreadcrumbs.css">
+  <!--<link rel="stylesheet" href="components/myStepper/steppers.css">-->
+  <link rel="stylesheet" href="scripts/demo/demo-theme.css">
+  <link rel="stylesheet" href="components/myStepper/steppers.css">
+  <link rel="stylesheet" href="components/table-view/ovTableViewTest.css">
+  <link rel="stylesheet" href="components/msCard/msCard.css">
+  <!--<script data-main="main" src="bower_components/requirejs/require.js"></script>-->
+
+  <!--lib-->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/lodash/index.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/i18next/i18next.min.js"></script>
+  <script src="bower_components/i18next-xhr-backend/i18nextXHRBackend.min.js"></script>
+  <script src="bower_components/ng-i18next/dist/ng-i18next.min.js"></script>
+  <script src="bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+  <!--<script src="scripts/core/routeResolver.js"></script>-->
+  <!--/-->
+
+</head>
+<body ng-controller="AppCtrl as vm">
+<header id="header">
+  <div class="container container-fluid">
+    <!--https://phamngochieu.wordpress.com/2015/10/31/class-row-va-class-contener-trong-bootstrap/-->
+    <div class="row">
+      <!--header left-->
+      <div class="col-xs-8 col-md-8">
+        <div class="header-left">
+          <div class="header-title">
+            <nav>
+              <!-- Sidebar -->
+              <button type="button" class="menu-responsive navbar-toggle collapsed"
+                      ng-click="vm.isShowSideBar=!vm.isShowSideBar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <span id="music-icon" ng-click="vm.changeRoute('songs')" class="glyphicon glyphicon-headphones"></span>
+              <a class="title" ng-click="vm.changeRoute('songs')">
+                {{'app.title'| i18next}}
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <!--right header-->
+      <div class="col-xs-4 col-sm-4">
+        <div class="header-right">
+          <div class="languages pull-right">
+            <a ng-click="vm.changeLang('en')">
+              <img src="images/flag/flag-32.ico">
+              <span ng-class="{blackcolor: vm.isEnLanguge()}">en</span>
+            </a> |
+            <a ng-click="vm.changeLang('vi')">
+              <img src="images/flag/vietnam-32.ico">
+              <span ng-class="{blackcolor: !vm.isEnLanguge()}">vi</span>
+            </a>
+          </div><!--/pull-right-->
+        </div>
+      </div>
+    </div>
+  </div>
+</header><!--/header-->
+<section>
+  <div id="main-wrapper">
+    <div class="container container-fluid">
+      <div class="row">
+        <!-- sidebar -->
+        <div id="sidebar" ng-show="vm.isShowSideBar">
+          <a ng-click="vm.changeRoute('songs')"
+             ng-class="{'active-menu':vm.isSongMenu()}">{{'app.common.song'| i18next}}</a>
+          <a ng-click="vm.changeRoute('playlists')"
+             ng-class="{'active-menu':vm.isPlaylistMenu()}">{{'app.common.playlists'| i18next}}</a>
+          <a ng-click="vm.changeRoute('demoDirective')">Demo Directive</a>
+        </div>
+        <!--/ sider-bar-->
+        <div id="left-sidebar" class="col-sm-3">
+          <div class="btn-group-vertical">
+            <button type="button" class="btn btn-default" ng-click="vm.changeRoute('songs')"
+                    ng-class="{'active-menu':vm.isSongMenu()}">{{'app.common.song'| i18next | upperCase}}
+            </button>
+            <button type="button" class="btn btn-default" ng-click="vm.changeRoute('playlists')"
+                    ng-class="{'active-menu':vm.isPlaylistMenu()}">{{'app.common.playlists'| i18next | upperCase}}
+            </button>
+            <button type="button" class="btn btn-default" ng-click="vm.changeRoute('demoDirective')">
+              Demo Directive
+            </button>
+          </div>
+        </div>
+        <div id="main-content" class="col-sm-9">
+          <div class="row" ng-view="">
+          </div>
+        </div>
+      </div><!--/row-->
+    </div><!--/container container-fluid-->
+  </div><!--/main-wrapper-->
+</section>
+
+<!-- footer -->
+<footer id="footer">
+  <div class="container container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="company-info">
+          <p>Copyright 2017,TMA Solutions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+</script>
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="scripts/app.module.js"></script>
+<script src="scripts/config-route.js"></script>
+<script src="scripts/app.js"></script>
+<script type="text/javascript" src="scripts/main-app/app.service.js"></script>
+
+<!--common-->
+<script type="text/javascript" src="scripts/common/common.constant.js"></script>
+<script type="text/javascript" src="scripts/common/common.service.js"></script>
+
+<!--appService-->
+
+<!-- directive-->
+<script src="components/breadcrumbs/ovBreadcrumbs.controller.js"></script>
+<script src="components/breadcrumbs/ovBreadcrumbs.directive.js"></script>
+
+<script src="components/myStepper/steppers.controller.js"></script>
+<script src="components/myStepper/steppers.directive.js"></script>
+
+<script src="components/book/book.directive.js"></script>
+<script src="components/upperCase/upperCase.filter.js"></script>
+<script src="components/myDomDirective/myDomDirective.directive.js"></script>
+
+<script src="components/ngSparkline/ngSparkline.directive.js"></script>
+
+<!-- msCard -->
+<script src="components/msCard/msCard.constant.js"></script>
+<script src="components/msCard/msCard.controller.js"></script>
+<script src="components/msCard/msCard.directive.js"></script>
+
+
+<!-- clickOutsideElement -->
+<script src="components/table-view/ovTableView.controller.js"></script>
+<script src="components/table-view/ovTableView.directive.js"></script>
+
+<script src="components/dialog/ovDialog.directive.js"></script>
+<script src="components/dialog/ovDialog.controller.js"></script>
+
+</body>
+</html>

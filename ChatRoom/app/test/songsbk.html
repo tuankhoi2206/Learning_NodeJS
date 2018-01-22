@@ -1,0 +1,194 @@
+<breadcrumbs titles="songs.titles"></breadcrumbs>
+<!--<span>{{songs.titles}}</span>-->
+<!-- Song Nav-->
+<nav class="navbar navbar-inverse navbar-custom">
+  <div class="container-fluid">
+    <div style="margin: 5px;">
+      <div style="float: left">
+        <span class="title">{{songs.titleName}}</span>
+      </div>
+      <div class="right-div">
+
+        <!-- Search Bar -->
+        <div class="search-bar" ng-model="songs.searchFish">
+          <i id="icon-search" class="fa fa-search"></i>
+          <input type="text" class="search" ng-model="songs.searchFish">
+          <i id="icon-close" class="fa fa-times" onclick="closeSearchBar()"></i>
+        </div>
+
+        <div class="cs-group-button" id="cs-group-button">
+          <button type="button" class="btn btn-success btn-responsive btn-action"
+                  ng-click="app.changeRoute('createsong')">
+            <span class="glyphicon glyphicon-plus"></span>
+            <span class="nav-button">Add</span>
+          </button>
+
+          <!-- All Delete -->
+          <!--ng-disabled="true"-->
+          <button type="button" class="btn btn-danger btn-responsive btn-action" data-toggle="modal"
+                  data-target="#multiDelete" ng-disabled="songs.isDisabledBtn">
+            <i class="fa fa-trash-o"></i>
+            <span class="nav-button">Delete</span>
+          </button>
+
+          <button type="button" class="btn btn-info btn-responsive btn-action" onclick="displaySearchBar()">
+            <span class="glyphicon glyphicon-search"></span>
+            <span class="nav-button">Search</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Song -->
+<div class="container-fluid">
+
+  <table class="main-table table table-bordered table-hover">
+    <thead>
+    <tr>
+      <th>
+        <input type="checkbox" class="checkbox-inline" ng-model="songs.isCheckedMasterChkBox"
+               ng-change="songs.stageChangeMasterChkBox()">
+      </th>
+
+      <th>
+
+        <a ng-click="songs.sortType = 'id'; songs.sortReverse = !songs.sortReverse">
+          ID
+          <span ng-show="songs.sortType == 'id' && !songs.sortReverse" class="fa fa-caret-down"></span>
+          <span ng-show="songs.sortType == 'id' && songs.sortReverse" class="fa fa-caret-up"></span>
+        </a>
+
+      </th>
+      <th>
+
+        <a ng-click="songs.sortType = 'title'; songs.sortReverse = !songs.sortReverse">
+          Name
+          <span ng-show="songs.sortType == 'title' && !songs.sortReverse" class="fa fa-caret-down"></span>
+          <span ng-show="songs.sortType == 'title' && songs.sortReverse" class="fa fa-caret-up"></span>
+        </a>
+
+      </th>
+
+      <th>
+        <a ng-click="songs.sortType = 'artists'; songs.sortReverse = !songs.sortReverse">
+          Artist
+          <span ng-show="songs.sortType == 'artists' && !songs.sortReverse" class="fa fa-caret-down"></span>
+          <span ng-show="songs.sortType == 'artists' && songs.sortReverse" class="fa fa-caret-up"></span>
+        </a>
+      </th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <!-- for song -->
+    <tr ng-repeat='song in songs.lstSong | filter: songs.searchFish | orderBy: songs.sortType: songs.sortReverse'>
+
+      <td class="col-text-align td-align">
+        <input type="checkbox" class="checkbox-inline" ng-model="song.songChecked"
+               ng-change="songs.stageChangeChkBox(song.id)">
+      </td>
+      <td class="text-center">{{ song.id }}</td>
+      <td>{{ song.title }}</td>
+      <td>{{ song.artists }}</td>
+      <td class="text-center">
+
+        <!--Edit-->
+        <button type="button" class="btn btn-warning" ng-click="songs.changeRouteToEdit(song)">
+          <i class="fa fa-edit"></i> Edit
+        </button>
+        <!--<button type="button" class="btn btn-primary glyphicon glyphicon-minus deleteRowButton">Delete</button>-->
+
+        <!--Delete-->
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"
+                ng-click="songs.getIndex($index)">
+          <i class="fa fa-trash-o"></i>Delete
+        </button>
+
+      </td>
+    </tr>
+
+    <!-- Modal one delete -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Delete</h4>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete this song ?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="songs.remove()">
+              Yes
+            </button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- end modal-->
+
+    <!-- Modal multiple delete-->
+    <div class="modal fade" id="multiDelete" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Delete</h4>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete selected songs ?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal"
+                    ng-click="songs.removeSongs()">Yes
+            </button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+          </div>
+        </div>
+      </div>
+    </div><!-- end modal-->
+    </tbody>
+  </table>
+
+  <!-- List -->
+  <div class="panel panel-default panel-list-mini">
+    <div class="panel-body">
+      <ul id="list-view">
+        <li ng-repeat='song in songs.lstSong' class="container">
+          <div class="col-xs-2 text-center line-height">
+            <input type="checkbox" class="checkbox-inline" ng-model="song.songChecked"
+                   ng-change="songs.stageChangeChkBox(song.id)">
+          </div>
+          <div class="col-xs-6 div-text">
+            <strong>{{ song.title }}</strong><br>{{ song.artists }}
+          </div>
+
+          <div class="col-xs-4 text-center line-height">
+            <!--Edit-->
+            <button type="button" class="btn btn-warning" ng-click="songs.changeRouteToEdit(song)">
+              <i class="fa fa-edit"></i> <span class="displayLabel">Edit</span>
+            </button>
+            <!--Delete-->
+            <button id="list-btn-del" type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"
+                    ng-click="songs.getIndex($index)">
+              <i class="fa fa-trash-o"></i>
+              <span class="displayLabel">Delete</span>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!--table-list-view-->

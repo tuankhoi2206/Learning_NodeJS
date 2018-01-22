@@ -1,0 +1,52 @@
+
+.stepper
+  list-style none
+  li
+    a
+      padding 24px
+      text-decoration none
+      .circle
+        display: inline-block
+        color: #fff
+        border-radius: 50%
+        background: rgba(0, 0, 0, .38)
+        width: 24px
+        height: 24px
+        line-height: 24px
+        margin-right: 8px
+        text-align center
+        background-color #1A91B1
+      .label
+        color #1A91B1
+        font-size 100%
+  .warning
+    .circle
+      background-color red
+
+.stepper-vertical
+  display flex
+  flex-direction column
+  justify-content space-between
+  padding 0px
+  li
+    display flex
+    flex 1
+    flex-direction column
+    align-items flex-start
+    position relative
+    .step-content
+      margin-left 66px
+    &:not(:last-child):after
+      content " "
+      position absolute
+      width 1px
+      height calc(100% - 40px)
+      left 35px
+      top 55px
+      background-color rgba(0, 0, 0, .1)
+
+//.label
+//  color #1A91B1
+//  font-size 100%
+
+

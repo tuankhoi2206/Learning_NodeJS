@@ -1,0 +1,46 @@
+{
+  "app": {
+    "title": "Music Manager",
+    "common": {
+      "home": "Home",
+      "song": "Song",
+      "playlists": "Playlists",
+      "button": {
+        "add": "Add",
+        "create": "Create",
+        "apply": "Apply",
+        "edit": "Edit",
+        "delete": "Delete",
+        "cancel": "Cancel",
+        "search": "Search",
+        "revert": "Revert"
+      }
+    },
+    "song": {
+      "title-name": "Name title cannot be empty!",
+      "create-title": "Create Songs",
+      "edit-title": "Edit Songs"
+    },
+    "playlist": {
+      "title-name": "Name title cannot be empty!",
+      "create-title": "Create Playlist",
+      "edit-title": "Edit Playlist",
+      "information": "Information",
+      "addsong": "AddSong"
+    },
+    "table": {
+      "song": {
+        "id": "ID",
+        "title": "Title",
+        "artist": "Artist",
+        "action": "Action"
+      },
+      "playlist": {
+        "id": "ID",
+        "name": "Name",
+        "description": "Description",
+        "action": "Action"
+      }
+    }
+  }
+}

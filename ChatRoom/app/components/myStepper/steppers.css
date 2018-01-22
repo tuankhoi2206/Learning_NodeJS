@@ -1,0 +1,51 @@
+.stepper {
+  list-style: none;
+}
+.stepper li a {
+  padding: 24px;
+  text-decoration: none;
+}
+.stepper li a .circle {
+  display: inline-block;
+  color: #fff;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.38);
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  margin-right: 8px;
+  text-align: center;
+  background-color: #1a91b1;
+}
+.stepper li a .label {
+  color: #1a91b1;
+  font-size: 100%;
+}
+.stepper .warning .circle {
+  background-color: #f00;
+}
+.stepper-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0px;
+}
+.stepper-vertical li {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+.stepper-vertical li .step-content {
+  margin-left: 66px;
+}
+.stepper-vertical li:not(:last-child):after {
+  content: " ";
+  position: absolute;
+  width: 1px;
+  height: calc(100% - 40px);
+  left: 35px;
+  top: 55px;
+  background-color: rgba(0,0,0,0.1);
+}

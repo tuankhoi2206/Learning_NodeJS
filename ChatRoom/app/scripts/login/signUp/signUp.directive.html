@@ -1,0 +1,36 @@
+<div class="wrapper-login">
+  <!-- pinner -->
+  <div></div>
+
+  <!-- alert -->
+  <div></div>
+  <div class="login-form">
+    <div>
+      <span><strong>Sign Up</strong></span>
+    </div>
+    <div class="login-row">
+      <input type="text" id="username" placeholder="Username" ng-model="vm.user.username">
+    </div>
+    <div class="login-row">
+      <input type="password" id="password" placeholder="Password" ng-model="vm.user.password"
+             zxcvbn="vm.passwordStrength">
+    </div>
+    <div class="login-row">
+      <div style="margin: 0 auto; width: 30rem;">
+        <zxpassword-meter value="vm.passwordStrength" max-score="4"></zxpassword-meter>
+      </div>
+    </div>
+
+    <div class="login-row">
+      <div class="strength-meter">
+        <div class="strength-meter-fill" data-strength="2"></div>
+      </div>
+    </div>
+    <div class="login-row">
+      <input type="password" id="confirm_password" placeholder="Confirm Password" ng-model="vm.user.confirmPassword">
+    </div>
+    <div class="login-row">
+      <input type="button" value="LOGIN" ng-click="vm.signUp()">
+    </div>
+  </div>
+</div>
