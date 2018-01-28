@@ -1,13 +1,13 @@
 (function () {
   'use strict';
   angular.module('chat.app')
-    .directive('loginForm', LoginCtrl);
+    .directive('room', roomDirective);
 
-  function LoginCtrl() {
+  function roomDirective() {
     return {
       restrict: 'AE',
       controller: 'RoomCtrl',
-      templateUrl: 'app/scripts/login/login.directive.html',
+      templateUrl: '/app/scripts/room/room.directive.html',
       controllerAs: 'vm'
     };
   }

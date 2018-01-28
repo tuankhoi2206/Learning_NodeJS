@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="stylesheet" href="room.css">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-</head>
-<body ng-controller="AppCtrl as vm">
 <div style="display: flex; justify-content: center; position: relative">
   <div class="wrapper-room">
     <div class="left-panel">
-      <div class="image-profile">
-        <div class="picture"></div>
+      <div class="mini-profile clearfix">
+        <img src="../../../app/images/no-name.png" class="image-user"/>
+        <div class="infor">
+          <p class="name">Khoi vu</p>
+          <p class="current">Busy</p>
+        </div>
       </div>
       <!-- search Box -->
       <div class="box">
@@ -21,14 +15,22 @@
       </div>
       <!--/ search Box -->
 
+      <!-- Contact Bar -->
       <div class="contact-feature">
         <ul class="group-contact">
-          <li data-toggle="toggle" data-style="slow">PEOPLE</li>
-          <li data-toggle="toggle" data-style="slow">CHATS</li>
-          <li data-toggle="toggle" data-style="slow">GROUPS</li>
+          <li>People</li>
+          <li>Chats</li>
+          <li>Groups</li>
         </ul>
       </div>
+      <!--/ Contact Bar -->
 
+      <!-- List Contact -->
+      <div class="item-contact">
+        <list-view list-view-id="list-view-id" items="vm.data.group"
+                   item-template="vm.data.config.itemTemplate"></list-view>
+      </div>
+      <!--/ List Contact -->
     </div>
     <!--/ left-panel-->
     <div class="room">
@@ -38,6 +40,3 @@
   <div class="right-panel">
   </div>
 </div>
-</div>
-</body>
-</html>

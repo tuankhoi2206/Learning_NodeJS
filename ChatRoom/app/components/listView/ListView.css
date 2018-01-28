@@ -1,0 +1,15 @@
+.list-view-wrapper .list-view {
+  list-style-type: none;
+  padding-left: 0px;
+}
+.list-view-wrapper .list-view .item .detail {
+  margin: 1rem;
+}
+.list-view-wrapper .list-view li {
+  margin: 0.8rem;
+  border: 1px solid #32465a;
+}
+.list-view-wrapper .list-view li:hover {
+  box-shadow: 0px 0px 10px 0px #32465a;
+  cursor: pointer;
+}

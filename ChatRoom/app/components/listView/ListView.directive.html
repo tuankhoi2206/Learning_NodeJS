@@ -1,0 +1,7 @@
+<div class="list-view-wrapper">
+  <ul class="list-view">
+    <li class="item" ng-repeat="item in vm.items | filter:vm.searchItem">
+      <div class="detail" ng-include="vm.itemTemplate"></div>
+    </li>
+  </ul>
+</div>

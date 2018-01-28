@@ -36,7 +36,8 @@ app.get('/', function (req, res) {
   //   });
   // }
 
-  var loginUrl = __dirname + '\\app\\login.html';
+  var loginUrl = __dirname + '\\app\\index.html';
+  // var loginUrl = __dirname + '\\app\\login.html';
   res.sendFile(loginUrl);
 });
 
