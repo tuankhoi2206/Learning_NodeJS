@@ -65,6 +65,7 @@ router.post('/authenticate', function (req, res) {
         // var token = jwt.encode(user, config.secret);
         // return the information including token as JSON
         var token = jwt.sign(user, config.secret, {
+          algorithm: 'RS256',
           expiresIn: 86400
         });
         //???? req
@@ -102,7 +103,8 @@ router.post('/register', function (req, res) {
       //   expiresIn: 86400 // expires in 24 hours
       // });
 
-      var token = jwt.encode(user, config.secret);
+      // var token = jwt.encode(user, config.secret,{ algorithm: 'RS256'});
+      var token = jwt.sign(user, config.secret, {algorithm: 'RS256', expiresIn: 86400});
       // return the information including token as JSON
       res.status(200).json({
         data: {

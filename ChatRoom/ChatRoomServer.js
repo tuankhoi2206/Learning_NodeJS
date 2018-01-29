@@ -6,6 +6,7 @@ var express = require('express'),
   session = require('express-session'),
   bodyParser = require('body-parser'),
   morgan = require('morgan'),
+  config = require(__dirname + '/app/config/config.token'),
   v1options = {
     node: [0x01, 0x23, 0x45, 0x67, 0x89, 0xab],
     clockseq: 0x1234,
@@ -37,18 +38,17 @@ app.use(session({
 
 //middleware function to check for logged-in users
 var sessionChecker = function (req, res, next) {
-  console.log('req.cookie.accessToken', req.cookies);
   var accessToken = req.cookies && req.cookies['accessToken'] || undefined;
-  console.log('req.cookie.accessToken', accessToken);
   if (accessToken) {
     // verifies secret and checks exp
-    jwt.verify(accessToken, app.get('superSecret'), function (err) {
+    jwt.verify(accessToken, config.secret, function (err) {
       if (!err) {
+        console.log('index.html');
         res.sendFile(__dirname + '\\app\\index.html');
       }
     });
   } else {
-    next();
+    res.sendFile(__dirname + '\\app\\login.html');
   }
   // end if
   // if (req.session.user && req.cookies.user_sid) {

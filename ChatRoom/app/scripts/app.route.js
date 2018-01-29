@@ -23,20 +23,20 @@
   function config($i18nextProvider, $routeProvider) {
     $routeProvider
       .when('/', {
-        redirectTo: '/login'
+        redirectTo: '/room'
       })//song
-      .when('/login', {
-        templateUrl: 'app/scripts/login/login.directive.html',
-        controller: 'LoginCtrl',
-        controllerAs: 'vm'
-      })
+      // .when('/login', {
+      //   templateUrl: 'app/scripts/login/login.directive.html',
+      //   controller: 'LoginCtrl',
+      //   controllerAs: 'vm'
+      // })
       .when('/room', {
         templateUrl: 'app/scripts/room/room.directive.html',
         controller: 'RoomCtrl',
         controllerAs: 'vm'
       })
       .otherwise({
-        redirectTo: '/login'
+        redirectTo: '/room'
       });
   }// end config
 
