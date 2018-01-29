@@ -9,11 +9,21 @@ var UserSchema = new Schema({
     type: String,
     index: true,
     required: true,
-    unique: true
+    unique: true,
+  },
+  email: {
+    type: String,
+    unique: true,
+    required: true,
+    trim: true
   },
   password: {
     type: String,
-    required: true
+    required: true,
+  },
+  passwordConf: {
+    type: String,
+    required: true,
   }
 });
 //http://mongoosejs.com/docs/guide.html

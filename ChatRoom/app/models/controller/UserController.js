@@ -11,6 +11,38 @@ var User = require(__root + '/app/models/User');
  * Login/SignIn
  * Description:
  */
+// router.post('/authenticate', function (req, res) {
+//   User.findOne({
+//     username: req.body.username,
+//     password: req.body.password
+//   }, function (err, user) {
+//     /*** Server error ***/
+//     if (err) {
+//       res.json({
+//         status: 'FAIL',
+//         message: 'Error occured: ' + err
+//       });
+//     } else {
+//       if (!user) {
+//         res.status(403).json({
+//           status: 'FAIL',
+//           message: 'Authentication failed. Please check Username/Password.'
+//         });
+//       } else {
+//         // xem lai cho nay
+//         // var token = jwt.encode(user, config.secret);
+//         // return the information including token as JSON
+//         var token = jwt.sign(user, config.secret, {
+//           expiresIn: 86400
+//         });
+//         res.status(200).json({
+//           status: 'SUCCESS',
+//           accessToken: token
+//         });
+//       }
+//     }// end else if(err)
+//   });
+// });
 router.post('/authenticate', function (req, res) {
   User.findOne({
     username: req.body.username,
@@ -35,6 +67,8 @@ router.post('/authenticate', function (req, res) {
         var token = jwt.sign(user, config.secret, {
           expiresIn: 86400
         });
+        //???? req
+        res.cookie('accessToken', token);
         res.status(200).json({
           status: 'SUCCESS',
           accessToken: token

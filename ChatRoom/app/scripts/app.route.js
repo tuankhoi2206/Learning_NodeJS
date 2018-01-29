@@ -23,7 +23,7 @@
   function config($i18nextProvider, $routeProvider) {
     $routeProvider
       .when('/', {
-        redirectTo: '/room'
+        redirectTo: '/login'
       })//song
       .when('/login', {
         templateUrl: 'app/scripts/login/login.directive.html',
