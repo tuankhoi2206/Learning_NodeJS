@@ -1,23 +1,89 @@
-.wrapper-login
-  margin 15rem auto
-  width 40rem
-  background-color #f1f1f1
-  text-align center
-  box-shadow 0px 0px 10px 0px
+general-color = #555555
+
+.wrap-login
+  width 44rem
+  background-color #fff
+  border-radius: 10px
+  padding 5rem
+  box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1)
+  .form-title
+    color general-color
+    font-weight 600
+    font-size 30px
+    line-height 1.2
+    text-transform uppercase
+    text-align left
   .login-form
-    padding 5rem 0rem 5rem 0rem
-    input[type="text"], input[type="button"], input[type="password"]
-      padding 1rem
-      width 30rem
-    input[type="button"]
-      background-color #4CAF50
-      color white
-      border 0px
-    .login-row
-      padding-bottom 1rem
-    .login-social
-      border-bottom 2px solid white
-      margin-bottom 1rem
-      .img-height
-        height 6rem
-        cursor pointer
+    .txt
+      font-size 13px
+      color #555555
+      line-height 1.4
+      text-transform uppercase
+      padding-bottom 11px
+    .wrap-password
+      position relative
+    .show-pass
+      font-size 15px
+      color #999999
+      display flex
+      align-items center
+      position absolute
+      height 100%
+      top 0
+      right 12px
+      padding 0 5px
+      cursor pointer
+      transition background 0.4s
+      &:hover
+        color #57b846
+    input
+      outline none
+      border none
+    .input100
+      border 1px solid #ebebeb
+      color #555555
+      line-height 1.2
+      font-size 18px
+      display block
+      width 100%
+      background transparent
+      height 55px
+      padding 0 25px 0 25px
+    .login-btn
+      color #fff
+      font-size 16px
+      line-height 1.2
+      padding 0 20px
+      min-width 150px
+      height 55px
+      background-color #333333
+      border-radius 27px
+      transition all 0.4s
+      box-shadow 0 10px 30px 0px rgba(0, 0, 0, 0.1)
+      &:hover
+        background-color #57b846
+    .social-title
+      color #999999
+    .wrap-login-social
+      display flex
+    .social-item
+      text-decoration none
+      font-size 25px
+      color #3b5998
+      display flex
+      justify-content center
+      align-items center
+      width 150px
+      height 50px
+      border-radius 27px
+      background-color #fff
+      margin 5px
+      box-shadow 0 5px 20px 0px rgba(0, 0, 0, 0.1)
+  .login-row
+    margin-bottom 2rem
+  .login-social
+    border-bottom 2px solid white
+    margin-bottom 1rem
+    .img-height
+      height 6rem
+      cursor pointer

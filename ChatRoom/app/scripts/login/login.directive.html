@@ -1,35 +1,43 @@
-<div class="wrapper-login">
+<div class="wrap-login">
   <!-- pinner -->
   <div></div>
 
   <!-- alert -->
   <div></div>
   <div class="login-form">
-    <div class="login-social">
-      <div>
-        <span><strong>Login</strong> via</span>
-      </div>
-      <div>
-        <img class="img-height" src="app/images/login/facebookLoginBtn.png">
-      </div>
-      <div class="login-row">
-        <img class="img-height" src="app/images/login/twitterLoginBtn.png">
-      </div>
+    <div class="login-row">
+      <h3 class="form-title">LOGIN</h3>
     </div>
 
+    <span class="txt">username</span>
     <div class="login-row">
-      <input type="text" id="username" placeholder="Username" ng-model="vm.user.username">
+      <input type="text" class="input100" id="username" ng-model="vm.user.username">
+    </div>
+    <span class="txt">Password</span>
+    <div class="login-row wrap-password">
+      <span class="show-pass">
+        <i class="fa fa-eye"></i>
+			</span>
+      <input type="password" class="input100" id="password" ng-model="vm.user.password">
+    </div>
+    <div class="login-row forgot-password">
+
     </div>
     <div class="login-row">
-      <input type="password" id="password" placeholder="Password" ng-model="vm.user.password">
+      <input type="button" class="login-btn" value="SIGN IN" ng-click="vm.doLogin()">
     </div>
-    <div class="login-row">
-      <div class="strength-meter">
-        <div class="strength-meter-fill" data-strength="2"></div>
-      </div>
+    <!-- Title -->
+    <span class="social-title">Or login with</span>
+
+    <!-- Social icon -->
+    <div class="login-row wrap-login-social">
+      <a href="#" class="social-item">
+        <i class="fa fa-facebook-f"></i>
+      </a>
+      <a href="#" class="social-item">
+        <img src="app/images/login/icon-google.png" alt="GOOGLE">
+      </a>
     </div>
-    <div class="login-row">
-      <input type="button" value="LOGIN" ng-click="vm.doLogin()">
-    </div>
+    <p class="social-title">Not registered? <a href="#">Create an account</a></p>
   </div>
 </div>
