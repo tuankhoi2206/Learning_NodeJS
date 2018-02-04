@@ -19,3 +19,12 @@ Chat
 http://bashooka.com/inspiration/chat-ui-designs/
 https://www.pubnub.com/tutorials/angularjs/chat-buddy-list/
 https://www.pubnub.com/tutorials/angularjs/chat-managing-channel-groups/#component
+
+Document
+https://code.tutsplus.com/tutorials/real-time-chat-with-nodejs-socketio-and-expressjs--net-31708
+http://2ality.com/2014/09/es6-modules-final.html
+http://mannyhenri.com/portfolio/node-js-real-time-web-with-socket-io/
+
+Rect
+https://codeburst.io/how-i-built-an-interactive-30-day-bitcoin-price-graph-with-react-and-an-api-6fe551c2ab1d
+http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/

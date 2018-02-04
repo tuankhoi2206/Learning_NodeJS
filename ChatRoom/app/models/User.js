@@ -24,6 +24,9 @@ var UserSchema = new Schema({
   passwordConf: {
     type: String,
     required: true,
+  },
+  picture:{
+
   }
 });
 //http://mongoosejs.com/docs/guide.html

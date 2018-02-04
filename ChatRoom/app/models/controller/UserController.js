@@ -7,6 +7,15 @@ var config = require(__root + '/app/config/config.token');
 // router.use(bodyParser.urlencoded({extended: true}));
 // In the Node.js module system, each file is treated as a separate module.
 var User = require(__root + '/app/models/User');
+
+var HTTP_STATUS = {
+  /**
+   * The request has not been applied because it lacks valid authentication credentials for the target resource
+   */
+  UNAUTHORIZED: 401,
+  OK: 200,
+};
+
 /**
  * Login/SignIn
  * Description:
@@ -44,6 +53,15 @@ var User = require(__root + '/app/models/User');
 //   });
 // });
 router.post('/authenticate', function (req, res) {
+
+  if (!req.body.username || !req.body.password) {
+    res.json({
+      status: 'FAIL',
+      message: 'Username or password invalid.'
+    });
+    return;
+  }
+
   User.findOne({
     username: req.body.username,
     password: req.body.password
@@ -56,7 +74,8 @@ router.post('/authenticate', function (req, res) {
       });
     } else {
       if (!user) {
-        res.status(403).json({
+        //403
+        res.status(HTTP_STATUS.OK).json({
           status: 'FAIL',
           message: 'Authentication failed. Please check Username/Password.'
         });
@@ -65,11 +84,11 @@ router.post('/authenticate', function (req, res) {
         // var token = jwt.encode(user, config.secret);
         // return the information including token as JSON
         var token = jwt.sign(user, config.secret, {
-          expiresIn: 86400
+          expiresIn: 3600
         });
         //???? req
         res.cookie('accessToken', token);
-        res.status(200).json({
+        res.status(HTTP_STATUS.OK).json({
           status: 'SUCCESS',
           accessToken: token
         });
@@ -79,6 +98,14 @@ router.post('/authenticate', function (req, res) {
 });
 
 router.post('/register', function (req, res) {
+
+  if (!req.body.username || !req.body.password) {
+    res.json({
+      status: 'FAIL',
+      message: 'Username or password invalid.'
+    });
+    return;
+  }
 
   var hashedPassword = bcrypt.hashSync(req.body.password, 10);
 
@@ -104,34 +131,58 @@ router.post('/register', function (req, res) {
 
       var token = jwt.encode(user, config.secret);
       // return the information including token as JSON
-      res.status(200).json({
+      res.status(HTTP_STATUS.OK).json({
         data: {
           status: 'SUCCESS',
           accessToken: token
         }
       });
-      // res.status(200).send({auth: true, token: token});
+      // res.status(HTTP_STATUS.OK).send({auth: true, token: token});
       // https://medium.freecodecamp.org/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52
     });
 });
 
 router.get('/profile', function (req, res) {
-  var token = req.headers['access-token'];
-  if (!token) {
-    res.status(401).json({
+
+  var accessToken = req.cookies && req.cookies['accessToken'] || undefined;
+  if (accessToken) {
+    // verifies secret and checks exp
+    res.status(HTTP_STATUS.UNAUTHORIZED).json({
       data: {
         status: 'FAIL',
         message: 'No token provided.'
       }
     });
   }
+
   // return res.status(401).send({auth: false, message: 'No token provided.'});
   // jwt.verify(token, config.secret, function (err, decoded) {
   //   if (err) return res.status(500).send({auth: false, message: 'Failed to authenticate token.'});
-  //   res.status(200).send(decoded);
+  //   res.status(HTTP_STATUS.OK).send(decoded);
   // });
 });
 
 // apply the routes to our application with the prefix /api
 // app.use('api/users', router);
+
+router.get('/logout', function (req, res) {
+
+  var accessToken = req.cookies && req.cookies['accessToken'] || undefined;
+  if (accessToken) {
+    // verifies secret and checks exp
+    res.status(HTTP_STATUS.UNAUTHORIZED).json({
+      data: {
+        status: 'FAIL',
+        message: 'No token provided.'
+      }
+    });
+  }
+
+  // return res.status(401).send({auth: false, message: 'No token provided.'});
+  // jwt.verify(token, config.secret, function (err, decoded) {
+  //   if (err) return res.status(500).send({auth: false, message: 'Failed to authenticate token.'});
+  //   res.status(HTTP_STATUS.OK).send(decoded);
+  // });
+});
+
 module.exports = router;

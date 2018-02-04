@@ -18,7 +18,7 @@
         username: '',
         password: ''
       };
-
+      vm.msgAlert = '';
       vm.showSpinner = false;
       vm.showAlert = false;
       /* funcs*/
@@ -32,6 +32,8 @@
         // vm.showSpinner = false;
       }, function (error) {
         vm.showSpinner = false;
+        vm.showAlert = true;
+        vm.msgAlert = error.data.message;
       });
     }
   }

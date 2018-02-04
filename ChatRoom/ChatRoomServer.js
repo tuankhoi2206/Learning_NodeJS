@@ -6,7 +6,9 @@ var express = require('express'),
   session = require('express-session'),
   bodyParser = require('body-parser'),
   morgan = require('morgan'),
+  path = require('path'),
   config = require(__dirname + '/app/config/config.token'),
+  // io = require('socket.io')(app),
   v1options = {
     node: [0x01, 0x23, 0x45, 0x67, 0x89, 0xab],
     clockseq: 0x1234,
@@ -21,7 +23,7 @@ app.use(morgan('dev'));
 global.__root = __dirname;
 require('./app/config/db');
 
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8000;
 app.use(express.static(__dirname));
 
 //initialize express-session to allow us track the logged-in user across sessions.
@@ -39,16 +41,17 @@ app.use(session({
 //middleware function to check for logged-in users
 var sessionChecker = function (req, res, next) {
   var accessToken = req.cookies && req.cookies['accessToken'] || undefined;
+  debugger;
   if (accessToken) {
     // verifies secret and checks exp
     jwt.verify(accessToken, config.secret, function (err) {
       if (!err) {
         console.log('index.html');
-        res.sendFile(__dirname + '\\app\\index.html');
+        res.sendFile(path.join(__dirname + '/app/index.html'));
       }
     });
   } else {
-    res.sendFile(__dirname + '\\app\\login.html');
+    res.sendFile(path.join(__dirname + '/app/login.html'));
   }
   // end if
   // if (req.session.user && req.cookies.user_sid) {

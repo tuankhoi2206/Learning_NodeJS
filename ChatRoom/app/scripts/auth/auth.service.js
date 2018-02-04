@@ -58,11 +58,13 @@
           var token = response && response.data.accessToken;
           if (token) {
             storeUserCredentials(token);
-            resolve(response.status);
+            resolve(response);
           } else {
-            reject(response.status);
+            reject(response);
           }
         });
+      }, function (error) {
+        reject(error);
       });
     }
 

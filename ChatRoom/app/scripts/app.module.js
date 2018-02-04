@@ -5,6 +5,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'jm.i18next',
+    'component.app'
     // 'zxcvbn',
     // 'ui.bootstrap'
   ]);
